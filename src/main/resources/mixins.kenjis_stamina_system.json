@@ -1,0 +1,22 @@
+{
+  "minVersion": "0.8",
+  "refmap": "mixins.kenjis_stamina_system.refmap.json",
+  "required": true,
+  "package": "net.kenji.kenjis_stamina_system.mixins",
+  "plugin": "net.kenji.kenjis_stamina_system.CompatMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "HungerOverride",
+    "SprintOverride",
+    "JumpOverride",
+    "compat.IcarusHungerOverride",
+    "compat.EpicFightAttackMixin",
+    "compat.EpicFightPlayerMixin"
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

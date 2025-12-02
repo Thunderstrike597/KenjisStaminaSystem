@@ -1,0 +1,28 @@
+{
+  "mappings": {
+    "net/kenji/kenjis_stamina_system/mixins/HungerOverride": {
+      "addExhaustion": "Lnet/minecraft/world/food/FoodData;m_38703_(F)V",
+      "tick": "Lnet/minecraft/world/food/FoodData;m_38710_(Lnet/minecraft/world/entity/player/Player;)V"
+    },
+    "net/kenji/kenjis_stamina_system/mixins/SprintOverride": {
+      "hasEnoughFoodToStartSprinting": "Lnet/minecraft/client/player/LocalPlayer;m_255269_()Z"
+    },
+    "net/kenji/kenjis_stamina_system/mixins/JumpOverride": {
+      "jumpFromGround": "Lnet/minecraft/world/entity/player/Player;m_6135_()V"
+    }
+  },
+  "data": {
+    "searge": {
+      "net/kenji/kenjis_stamina_system/mixins/HungerOverride": {
+        "addExhaustion": "Lnet/minecraft/world/food/FoodData;m_38703_(F)V",
+        "tick": "Lnet/minecraft/world/food/FoodData;m_38710_(Lnet/minecraft/world/entity/player/Player;)V"
+      },
+      "net/kenji/kenjis_stamina_system/mixins/SprintOverride": {
+        "hasEnoughFoodToStartSprinting": "Lnet/minecraft/client/player/LocalPlayer;m_255269_()Z"
+      },
+      "net/kenji/kenjis_stamina_system/mixins/JumpOverride": {
+        "jumpFromGround": "Lnet/minecraft/world/entity/player/Player;m_6135_()V"
+      }
+    }
+  }
+}

@@ -1,0 +1,183 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+minecraft {
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
+    copyIdeResources = true
+    runs {
+        // applies to all the run configs below
+        configureEach {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+            args '-mixin.config=mixins.kenjis_stamina_system.json'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+        client {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+        server {
+            property 'forge.enabledGameTestNamespaces', mod_id
+            args '--nogui'
+        }
+        gameTestServer {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        data {
+            workingDirectory project.file('run-data')
+
+            args '--mod', mod_id, '--all', '--output', file('src/main/resources/'), '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+sourceSets.main.resources.srcDir 'src/main/resources'
+repositories {
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        name = "Progwml6's maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.kenjis_stamina_system.refmap.json'
+    config 'mixins.kenjis_stamina_system.json'
+
+    // Ensure you're pointing to the correct refMap
+    debug.verbose = true
+    debug.export = true
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:1.20.1-47.2.20"
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation fg.deobf("curse.maven:common-network-806044:5486134")
+    implementation fg.deobf("curse.maven:resourceful-config-714059:6231176")
+    implementation fg.deobf("curse.maven:curios-309927:6418456")
+    implementation fg.deobf("curse.maven:caelus-308989:5281700")
+
+    implementation fg.deobf("curse.maven:icarus-428151:7269556")
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:6145747")
+    implementation fg.deobf("curse.maven:jei-238222:5533463")
+    implementation fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220")
+
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE // Pick one strategy: INCLUDE, EXCLUDE, or FAIL
+
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Pick one strategy: INCLUDE, EXCLUDE, or FAIL
+
+    //exclude 'mixins.kenjis_stamina_system.refmap.json'
+
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : '1', // We are version 1 of ourselves
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : mod_authors,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs" : "mixins.kenjis_stamina_system.json"
+        ])
+    }
+    archiveBaseName = "${mod_version}-KenjiStaminaSystem-Forge"
+    archiveVersion = ""
+    finalizedBy 'reobfJar'
+}
+
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+task copyMixinRefmap(type: Copy) {
+    from "${buildDir}/tmp/compileJava/mixins.kenjis_stamina_system.refmap.json"
+    into "src/main/resources"
+    onlyIf { !file("src/main/resources/mixins.kenjis_stamina_system.refmap.json").exists() } // Prevents duplication
+    doLast {
+        println "Copied mixins.kenjis_stamina_system.refmap.json to src/main/resources"
+    }
+}
+
+processResources.dependsOn(copyMixinRefmap)

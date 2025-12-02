@@ -1,0 +1,166 @@
+[01Dec2025 15:35:30.194] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Seth\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config=mixins.kenjis_stamina_system.json, --mod, kenjis_stamina_system, --all, --output, D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\src\main\resources, --existing, D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\src\main\resources, --mixin.config, mixins.kenjis_stamina_system.json]
+[01Dec2025 15:35:30.204] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[01Dec2025 15:35:30.308] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[01Dec2025 15:35:30.345] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Seth/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[01Dec2025 15:35:30.689] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Seth\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Dec2025 15:35:30.691] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Seth\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Dec2025 15:35:30.693] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Seth\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Dec2025 15:35:30.694] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Seth\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
+[01Dec2025 15:35:30.907] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[01Dec2025 15:35:32.145] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by mixins.kenjis_stamina_system.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[01Dec2025 15:35:32.146] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[01Dec2025 15:35:32.156] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Seth\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, kenjis_stamina_system, --all, --output, D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\src\main\resources, --existing, D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\src\main\resources]
+[01Dec2025 15:35:32.258] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[01Dec2025 15:35:32.260] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[01Dec2025 15:35:32.280] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[01Dec2025 15:35:32.281] [main/INFO] [mixin/]: Selecting config mixins.kenjis_stamina_system.json
+[01Dec2025 15:35:32.468] [main/INFO] [mixin/]: Remapping refMap mixins.kenjis_stamina_system.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.469] [main/INFO] [mixin/]: Selecting config icarus.mixins.json
+[01Dec2025 15:35:32.505] [main/INFO] [mixin/]: Remapping refMap icarus.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.505] [main/INFO] [mixin/]: Selecting config icarus.forge.mixins.json
+[01Dec2025 15:35:32.505] [main/INFO] [mixin/]: Remapping refMap icarus.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.505] [main/INFO] [mixin/]: Selecting config caelus.mixins.json
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Selecting config curios.mixins.json
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Selecting config patchouli_xplat.mixins.json
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Selecting config mixins.epicfight.json
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Remapping refMap mixins.epicfight.refmap.json using D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\build/createSrgToMcp/output.srg
+[01Dec2025 15:35:32.506] [main/INFO] [mixin/]: Selecting config mixinextras.init.mixins.json
+[01Dec2025 15:35:32.617] [main/INFO] [mixin/]: Preparing mixins.kenjis_stamina_system.json (3)
+[01Dec2025 15:35:32.659] [main/INFO] [mixin/]: Preparing icarus.mixins.json (4)
+[01Dec2025 15:35:32.673] [main/INFO] [mixin/]: Preparing icarus.forge.mixins.json (1)
+[01Dec2025 15:35:32.674] [main/INFO] [mixin/]: Preparing caelus.mixins.json (4)
+[01Dec2025 15:35:32.701] [main/INFO] [mixin/]: Preparing curios.mixins.json (13)
+[01Dec2025 15:35:32.713] [main/INFO] [mixin/]: Preparing patchouli_xplat.mixins.json (10)
+[01Dec2025 15:35:32.731] [main/INFO] [mixin/]: Preparing mixins.epicfight.json (25)
+[01Dec2025 15:35:32.790] [main/WARN] [mixin/]: Error loading class: net/irisshaders/iris/pipeline/programs/ExtendedShader (java.lang.ClassNotFoundException: net.irisshaders.iris.pipeline.programs.ExtendedShader)
+[01Dec2025 15:35:32.790] [main/WARN] [mixin/]: @Mixin target net.irisshaders.iris.pipeline.programs.ExtendedShader was not found mixins.epicfight.json:IrisMixinExtendedShader
+[01Dec2025 15:35:32.791] [main/WARN] [mixin/]: Error loading class: net/irisshaders/iris/pipeline/PipelineManager (java.lang.ClassNotFoundException: net.irisshaders.iris.pipeline.PipelineManager)
+[01Dec2025 15:35:32.791] [main/WARN] [mixin/]: @Mixin target net.irisshaders.iris.pipeline.PipelineManager was not found mixins.epicfight.json:IrisMixinPipelineManager
+[01Dec2025 15:35:32.791] [main/WARN] [mixin/]: Error loading class: dev/tr7zw/skinlayers/SkinUtil (java.lang.ClassNotFoundException: dev.tr7zw.skinlayers.SkinUtil)
+[01Dec2025 15:35:32.791] [main/WARN] [mixin/]: @Mixin target dev.tr7zw.skinlayers.SkinUtil was not found mixins.epicfight.json:SkinLayer3DMixinSkinUtil
+[01Dec2025 15:35:32.792] [main/WARN] [mixin/]: Error loading class: dev/tr7zw/skinlayers/versionless/render/CustomModelPart (java.lang.ClassNotFoundException: dev.tr7zw.skinlayers.versionless.render.CustomModelPart)
+[01Dec2025 15:35:32.792] [main/WARN] [mixin/]: @Mixin target dev.tr7zw.skinlayers.versionless.render.CustomModelPart was not found mixins.epicfight.json:SkinLayer3DMixinCustomModelPart
+[01Dec2025 15:35:32.793] [main/WARN] [mixin/]: Error loading class: dev/tr7zw/skinlayers/versionless/render/CustomizableCube (java.lang.ClassNotFoundException: dev.tr7zw.skinlayers.versionless.render.CustomizableCube)
+[01Dec2025 15:35:32.793] [main/WARN] [mixin/]: @Mixin target dev.tr7zw.skinlayers.versionless.render.CustomizableCube was not found mixins.epicfight.json:SkinLayer3DMixinCustomizableCubeWrapper$SkinLayer3DMixinCustomModelCube
+[01Dec2025 15:35:32.793] [main/WARN] [mixin/]: Error loading class: de/teamlapen/vampirism/client/renderer/entity/layers/VampirePlayerHeadLayer (java.lang.ClassNotFoundException: de.teamlapen.vampirism.client.renderer.entity.layers.VampirePlayerHeadLayer)
+[01Dec2025 15:35:32.793] [main/WARN] [mixin/]: @Mixin target de.teamlapen.vampirism.client.renderer.entity.layers.VampirePlayerHeadLayer was not found mixins.epicfight.json:VampirismMixinVampirePlayerHeadLayer
+[01Dec2025 15:35:32.794] [main/WARN] [mixin/]: Error loading class: de/teamlapen/werewolves/client/render/layer/HumanWerewolfLayer (java.lang.ClassNotFoundException: de.teamlapen.werewolves.client.render.layer.HumanWerewolfLayer)
+[01Dec2025 15:35:32.794] [main/WARN] [mixin/]: @Mixin target de.teamlapen.werewolves.client.render.layer.HumanWerewolfLayer was not found mixins.epicfight.json:WerewolvesMixinHumanWerewolfLayer
+[01Dec2025 15:35:32.794] [main/INFO] [mixin/]: Preparing mixinextras.init.mixins.json (0)
+[01Dec2025 15:35:32.813] [main/INFO] [mixin/]: Prepared 53 mixins in 0.532 sec (10.0ms avg) (0ms load, 0ms transform, 0ms plugin)
+[01Dec2025 15:35:33.188] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [kenjis_stamina_system]
+[01Dec2025 15:35:33.349] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[01Dec2025 15:35:33.352] [main/INFO] [mixin/]: Mixing EntityMixin from icarus.mixins.json into net.minecraft.world.entity.Entity
+[01Dec2025 15:35:33.365] [main/INFO] [mixin/]: Mixing AccessorEntity from curios.mixins.json into net.minecraft.world.entity.Entity
+[01Dec2025 15:35:33.450] [main/INFO] [mixin/]: Mixing MixinLivingEntity from caelus.mixins.json into net.minecraft.world.entity.LivingEntity
+[01Dec2025 15:35:33.452] [main/INFO] [mixin/]: Mixing MixinLivingEntity from curios.mixins.json into net.minecraft.world.entity.LivingEntity
+[01Dec2025 15:35:33.455] [main/INFO] [mixin/]: Mixing MixinLivingEntity from mixins.epicfight.json into net.minecraft.world.entity.LivingEntity
+[01Dec2025 15:35:33.635] [main/INFO] [mixin/]: Mixing JumpOverride from mixins.kenjis_stamina_system.json into net.minecraft.world.entity.player.Player
+[01Dec2025 15:35:33.638] [main/INFO] [mixin/]: Mixing PlayerMixin from icarus.mixins.json into net.minecraft.world.entity.player.Player
+[01Dec2025 15:35:33.639] [main/INFO] [mixin/]: Mixing MixinPlayer from mixins.epicfight.json into net.minecraft.world.entity.player.Player
+[01Dec2025 15:35:34.176] [main/INFO] [mixin/]: Mixing MixinPowderSnowBlock from curios.mixins.json into net.minecraft.world.level.block.PowderSnowBlock
+[01Dec2025 15:35:34.722] [main/INFO] [mixin/]: Mixing MixinMob from mixins.epicfight.json into net.minecraft.world.entity.Mob
+[01Dec2025 15:35:34.851] [main/INFO] [mixin/]: Mixing MixinWitherBoss from mixins.epicfight.json into net.minecraft.world.entity.boss.wither.WitherBoss
+[01Dec2025 15:35:34.853] [main/INFO] [mixin/]: Renaming @Unique method getAmbientSound()Lnet/minecraft/sounds/SoundEvent; to mdc131e3$getAmbientSound$0 in mixins.epicfight.json:MixinWitherBoss
+[01Dec2025 15:35:34.871] [main/WARN] [mixin/]: @Final field nextHeadUpdate:[I in mixins.epicfight.json:MixinWitherBoss should be final
+[01Dec2025 15:35:34.872] [main/WARN] [mixin/]: @Final field idleHeadUpdates:[I in mixins.epicfight.json:MixinWitherBoss should be final
+[01Dec2025 15:35:35.241] [main/INFO] [mixin/]: Mixing MixinShearsItem from curios.mixins.json into net.minecraft.world.item.ShearsItem
+[01Dec2025 15:35:35.940] [main/INFO] [mixin/]: Mixing MixinThrownTrident from mixins.epicfight.json into net.minecraft.world.entity.projectile.ThrownTrident
+[01Dec2025 15:35:35.968] [main/INFO] [mixin/]: Mixing MixinEndCrystal from mixins.epicfight.json into net.minecraft.world.entity.boss.enderdragon.EndCrystal
+[01Dec2025 15:35:36.182] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[01Dec2025 15:35:36.182] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[01Dec2025 15:35:36.182] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[01Dec2025 15:35:36.182] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[01Dec2025 15:35:36.302] [main/INFO] [mixin/]: Mixing MixinServerGamePacketListenerImpl from mixins.epicfight.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[01Dec2025 15:35:36.398] [main/INFO] [mixin/]: Mixing MixinInventory from curios.mixins.json into net.minecraft.world.entity.player.Inventory
+[01Dec2025 15:35:36.476] [main/INFO] [mixin/]: Mixing MixinApplyBonusCount from curios.mixins.json into net.minecraft.world.level.storage.loot.functions.ApplyBonusCount
+[01Dec2025 15:35:36.915] [modloading-worker-0/INFO] [mixin/]: Mixing MixinCaelusApi from caelus.mixins.json into top.theillusivec4.caelus.api.CaelusApi
+[01Dec2025 15:35:36.966] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
+[01Dec2025 15:35:36.967] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
+[01Dec2025 15:35:37.000] [modloading-worker-0/INFO] [mixin/]: Mixing SprintOverride from mixins.kenjis_stamina_system.json into net.minecraft.client.player.LocalPlayer
+[01Dec2025 15:35:37.001] [modloading-worker-0/INFO] [mixin/]: Mixing MixinLocalPlayer from caelus.mixins.json into net.minecraft.client.player.LocalPlayer
+[01Dec2025 15:35:37.003] [modloading-worker-0/INFO] [mixin/]: Mixing MixinLocalPlayer from mixins.epicfight.json into net.minecraft.client.player.LocalPlayer
+[01Dec2025 15:35:37.057] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEntityRenderer from mixins.epicfight.json into net.minecraft.client.renderer.entity.EntityRenderer
+[01Dec2025 15:35:37.072] [modloading-worker-0/INFO] [mixin/]: Mixing MixinLivingEntityRenderer from mixins.epicfight.json into net.minecraft.client.renderer.entity.LivingEntityRenderer
+[01Dec2025 15:35:37.089] [modloading-worker-0/INFO] [mixin/]: Mixing client.AccessorKeyMapping from patchouli_xplat.mixins.json into net.minecraft.client.KeyMapping
+[01Dec2025 15:35:37.089] [modloading-worker-0/INFO] [mixin/]: Renaming @Accessor method getAllKeyMappings()Ljava/util/Map; to getAllKeyMappings_$md$c131e3$0 in patchouli_xplat.mixins.json:client.AccessorKeyMapping
+[01Dec2025 15:35:37.103] [modloading-worker-0/INFO] [mixin/]: Mixing WingItemMixin from icarus.forge.mixins.json into dev.cammiescorner.icarus.item.WingItem
+[01Dec2025 15:35:37.150] [modloading-worker-0/INFO] [mixin/]: Mixing client.AccessorScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.Screen
+[01Dec2025 15:35:37.167] [modloading-worker-0/INFO] [mixin/]: Mixing MixinAbstractContainerEventHandler from mixins.epicfight.json into net.minecraft.client.gui.components.events.AbstractContainerEventHandler
+[01Dec2025 15:35:37.195] [modloading-worker-0/INFO] [mixin/]: Mixing MixinMinecraft from mixins.epicfight.json into net.minecraft.client.Minecraft
+[01Dec2025 15:35:37.223] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\run-data\config\epicfight-client.toml is not correct. Correcting
+[01Dec2025 15:35:37.225] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame was corrected from null to its default, SimpleCommentedConfig:{}. 
+[01Dec2025 15:35:37.225] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.long_press_count was corrected from null to its default, 2. 
+[01Dec2025 15:35:37.225] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.max_hit_projectiles was corrected from null to its default, 30. 
+[01Dec2025 15:35:37.225] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.health_bar_show_option was corrected from null to its default, hurt. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.show_target_indicator was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.filter_animation was corrected from null to its default, false. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.laser_pointer_color was corrected from null to its default, 0.328125. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.enable_laser_pointer was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.camera_auto_switch was corrected from null to its default, false. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.auto_preparation was corrected from null to its default, false. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.blood_effects was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.no_mining_in_combat was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.aiming_correction was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.show_epicfight_attributes was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.use_animation_shader was corrected from null to its default, false. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.first_person_model was corrected from null to its default, true. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.battle_autoswitch_items was corrected from null to its default, []. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.mining_autoswitch_items was corrected from null to its default, []. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui was corrected from null to its default, SimpleCommentedConfig:{}. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.stamina_bar_x was corrected from null to its default, 120. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.stamina_bar_y was corrected from null to its default, 10. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.stamina_bar_x_base was corrected from null to its default, RIGHT. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.stamina_bar_y_base was corrected from null to its default, BOTTOM. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.weapon_innate_x was corrected from null to its default, 42. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.weapon_innate_y was corrected from null to its default, 48. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.weapon_innate_x_base was corrected from null to its default, RIGHT. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.weapon_innate_y_base was corrected from null to its default, BOTTOM. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.passives_x was corrected from null to its default, 70. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.passives_y was corrected from null to its default, 36. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.passives_x_base was corrected from null to its default, RIGHT. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.passives_y_base was corrected from null to its default, BOTTOM. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.passives_align_direction was corrected from null to its default, HORIZONTAL. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.charging_bar_x was corrected from null to its default, -119. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.charging_bar_y was corrected from null to its default, 60. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.charging_bar_x_base was corrected from null to its default, CENTER. 
+[01Dec2025 15:35:37.226] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key ingame.ui.charging_bar_y_base was corrected from null to its default, CENTER. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\I) ProjectFiles\Mod Development\Mod Projects\KenjisHungerRework-1.20.1-Forge\run-data\config\epicfight.toml is not correct. Correcting
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule was corrected from null to its default, SimpleCommentedConfig:{}. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.doVanillaAttack was corrected from null to its default, true. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.globalStun was corrected from null to its default, true. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.keepSkills was corrected from null to its default, true. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.hasFallAnimation was corrected from null to its default, true. 
+[01Dec2025 15:35:37.227] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.disapleEntityUI was corrected from null to its default, false. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.stiffComboAttacks was corrected from null to its default, true. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.noMobsInBossfight was corrected from null to its default, true. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.epicDrop was corrected from null to its default, true. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.weightPenalty was corrected from null to its default, 100. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.canSwitchCombat was corrected from null to its default, true. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key default_gamerule.initialPlayerMode was corrected from null to its default, MINING. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key loot was corrected from null to its default, SimpleCommentedConfig:{}. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key loot.skill_book_mob_drop_chance_modifier was corrected from null to its default, 0. 
+[01Dec2025 15:35:37.228] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key loot.skill_book_chest_drop_chance_modifier was corrected from null to its default, 0. 
+[01Dec2025 15:35:37.291] [modloading-worker-0/INFO] [mixin/]: Mixing client.MixinInventoryScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.inventory.InventoryScreen
+[01Dec2025 15:35:37.434] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[01Dec2025 15:35:37.441] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 3.147 ms
+[01Dec2025 15:35:37.455] [modloading-worker-0/INFO] [mixin/]: Mixing MixinBufferBuilder from mixins.epicfight.json into com.mojang.blaze3d.vertex.BufferBuilder
+[01Dec2025 15:35:37.483] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEnderDragonRenderer from mixins.epicfight.json into net.minecraft.client.renderer.entity.EnderDragonRenderer
+[01Dec2025 15:35:37.519] [modloading-worker-0/INFO] [mixin/]: Mixing client.MixinLevelRenderer from patchouli_xplat.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[01Dec2025 15:35:37.893] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.player.Player from class yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch
+[01Dec2025 15:35:37.909] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.910] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[01Dec2025 15:35:37.973] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Seth/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[01Dec2025 15:35:37.973] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Seth/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[01Dec2025 15:35:38.233] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 0 ms
+[01Dec2025 15:35:38.239] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 9, old count: 0, new count: 1, removed stale: 9, written: 0
