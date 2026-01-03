@@ -5,6 +5,8 @@ import net.kenji.kenjis_stamina_system.client.gui.StaminaBarManager;
 import net.kenji.kenjis_stamina_system.compat.epicfight.ManageStaminaEpicFight;
 import net.kenji.kenjis_stamina_system.compat.icarus.StaminaManagerIcarus;
 import net.kenji.kenjis_stamina_system.config.KenjisStaminaSystemCommon;
+import net.kenji.kenjis_stamina_system.stamina.Conditions;
+import net.kenji.kenjis_stamina_system.stamina.ConditionHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -46,7 +48,7 @@ public class KenjisStaminaSystem {
 
         // (Optional) register lifecycle listeners
         modEventBus.addListener(this::commonSetup);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KenjisStaminaSystemCommon.SPEC, "kenjiscombatforms-Common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KenjisStaminaSystemCommon.SPEC, "KenjisStaminaSystem-Common.toml");
 
     }
 
@@ -67,6 +69,8 @@ public class KenjisStaminaSystem {
         if(isIcarusLoaded()){
             StaminaManagerIcarus.OnInit();
         }
+        ConditionHandler.registerCondition(Conditions.fallFlying);
+        ConditionHandler.registerCondition(Conditions.inWater);
 
         LOGGER.info("[Kenji's Stamina System] Common setup initialized.");
     }

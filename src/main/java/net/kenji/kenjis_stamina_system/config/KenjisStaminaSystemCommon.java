@@ -21,10 +21,22 @@ public class KenjisStaminaSystemCommon {
 
     public static ForgeConfigSpec.ConfigValue<Double> EPIC_FIGHT_ATTACK_CONSUME_AMOUNT;
     public static ForgeConfigSpec.ConfigValue<Double> EPIC_FIGHT_DODGE_CONSUME_AMOUNT;
+    public static ForgeConfigSpec.ConfigValue<Double> EPIC_FIGHT_GUARD_CONSUME_AMOUNT;
     public static ForgeConfigSpec.ConfigValue<Double> ICARUS_FLY_CONSUME_AMOUNT;
 
+    public static ForgeConfigSpec.ConfigValue<Double> SPRINT_STAMINA_REGEN_DELAY;
+    public static ForgeConfigSpec.ConfigValue<Double> JUMP_STAMINA_REGEN_DELAY;
+    public static ForgeConfigSpec.ConfigValue<Double> BLOCK_BREAK_STAMINA_REGEN_DELAY;
 
-    public static ForgeConfigSpec.ConfigValue<Double> STAMINA_REGEN_DELAY;
+
+    public static ForgeConfigSpec.ConfigValue<Double> ATTACK_STAMINA_REGEN_DELAY;
+    public static ForgeConfigSpec.ConfigValue<Double> DODGE_STAMINA_REGEN_DELAY;
+    public static ForgeConfigSpec.ConfigValue<Double> GUARD_STAMINA_REGEN_DELAY;
+
+
+    public static ForgeConfigSpec.ConfigValue<Double> HUNGER_DEPLETE_AMOUNT;
+    public static ForgeConfigSpec.ConfigValue<Double> HUNGER_DEPLETE_AMOUNT_PUFFED;
+
 
 
 
@@ -65,12 +77,14 @@ public class KenjisStaminaSystemCommon {
         BUILDER.push("Compat Stamina Values");
 
         EPIC_FIGHT_ATTACK_CONSUME_AMOUNT = BUILDER
-                .comment("Epic Fight Attack Consume Amount")
-                .defineInRange("How much stamina attacking With epic fight system consumes", 38f, 15, 180);
+                .comment("Epic Fight 'ATTACK' Consume Amount")
+                .defineInRange("How much stamina attacking With epic fight's system consumes", 55f, 0.1, 180);
         EPIC_FIGHT_DODGE_CONSUME_AMOUNT = BUILDER
-                .comment("Epic Fight DODGE Consume Amount")
-                .defineInRange("How much stamina dodging With epic fight system consumes", 85f, 15, 180);
-
+                .comment("Epic Fight 'DODGE' Consume Amount")
+                .defineInRange("How much stamina dodging With epic fight's system consumes", 85f, 0.1, 180);
+        EPIC_FIGHT_GUARD_CONSUME_AMOUNT = BUILDER
+                .comment("Epic Fight 'GUARD' Consume Amount")
+                .defineInRange("How much stamina blocking an attack With epic fight's system consumes", 120f, 0.1, 180);
 
         ICARUS_FLY_CONSUME_AMOUNT = BUILDER
                 .comment("Icarus Fly Consume Amount")
@@ -80,12 +94,36 @@ public class KenjisStaminaSystemCommon {
 
 
         BUILDER.pop();
+        BUILDER.push("Exhaustion Values");
+
+        HUNGER_DEPLETE_AMOUNT = BUILDER
+                .comment("Hunger Exhaustion Amount")
+                .defineInRange("How much hunger is depleted when stamina is regenerating", 0.075, 0.0, 1);
+        HUNGER_DEPLETE_AMOUNT_PUFFED = BUILDER
+                .comment("Puffed Hunger Exhaustion Amount")
+                .defineInRange("How much hunger is depleted when stamina is regenerating when puffed", 0.12, 0.0, 1.5);
 
 
+        BUILDER.pop();
         BUILDER.push("Misc");
-        STAMINA_REGEN_DELAY = BUILDER
-                .comment("Stamina Regen Delay")
-                .defineInRange("The small amount of time before stamina begins to regenerate again", 40f, 28.0f, 140.0f);
+        SPRINT_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Sprint Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after sprinting", 40d, 0.1d, 140d);
+        ATTACK_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Attack Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after attacking with epic fight", 80d, 0.1d, 140d);
+        DODGE_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Dodge Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after dodging with epic fight", 70d, 0.1d, 140d);
+        GUARD_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Guard Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after blocking an attack with epic fight", 100d, 0.1d, 140d);
+        JUMP_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Jump Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after jumping", 50d, 0.1d, 140d);
+        BLOCK_BREAK_STAMINA_REGEN_DELAY = BUILDER
+                .comment("Block Break Stamina Regen Delay")
+                .defineInRange("The small amount of time before stamina begins to regenerate again after breaking a block", 58d, 0.1d, 140d);
 
 
         BUILDER.pop();

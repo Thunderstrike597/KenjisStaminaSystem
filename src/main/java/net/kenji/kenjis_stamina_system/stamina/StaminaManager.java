@@ -23,14 +23,68 @@ import java.util.UUID;
 @Mod.EventBusSubscriber(modid = KenjisStaminaSystem.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class StaminaManager {
 
+    public static Map<StaminaCause.StaminaCauses, Double> staminaCauseValues = new HashMap<>();
+
     private static final Map<UUID, StaminaManager> PLAYER_STAMINA = new HashMap<>();
     private static final Map<UUID, Integer> regenDelay = new HashMap<>();
+    private static final Map<UUID, StaminaCause.StaminaCauses> currentStaminaCause = new HashMap<>();
 
     public static float staminaConsumptionMultiplier = 1;
     public static float staminaGainMultiplier = 1;
     public static float staminaPuffedDivideAmount = 2.85f;
-    public static float foodExhaustAmount = 0.0075f;
-    public static float puffedFoodExhaustAmount = 0.02f;
+
+    public static void rebuildStaminaCauseMap() {
+        staminaCauseValues.clear();
+
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.SPRINTING,
+                KenjisStaminaSystemCommon.SPRINT_STAMINA_REGEN_DELAY.get()
+        );
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.JUMPING,
+                KenjisStaminaSystemCommon.JUMP_STAMINA_REGEN_DELAY.get()
+        );
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.BLOCK_BREAK,
+                KenjisStaminaSystemCommon.BLOCK_BREAK_STAMINA_REGEN_DELAY.get()
+        );
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.EPIC_FIGHT_ATTACK,
+                KenjisStaminaSystemCommon.ATTACK_STAMINA_REGEN_DELAY.get()
+        );
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.EPIC_FIGHT_DODGE,
+                KenjisStaminaSystemCommon.DODGE_STAMINA_REGEN_DELAY.get()
+        );
+        staminaCauseValues.put(
+                StaminaCause.StaminaCauses.EPIC_FIGHT_GUARD,
+                KenjisStaminaSystemCommon.GUARD_STAMINA_REGEN_DELAY.get()
+        );
+    }
+    public static class StaminaCause {
+
+        public enum StaminaCauses {
+            SPRINTING,
+            JUMPING,
+            BLOCK_BREAK,
+            EPIC_FIGHT_ATTACK,
+            EPIC_FIGHT_DODGE,
+            EPIC_FIGHT_GUARD
+        }
+    }
+
+    public static void setPlayerStaminaCause(Player player, StaminaCause.StaminaCauses cause){
+        currentStaminaCause.put(player.getUUID(), cause);
+        double currentCause = staminaCauseValues.get(currentStaminaCause.getOrDefault(player.getUUID(), StaminaCause.StaminaCauses.SPRINTING));
+        StaminaManager.get(player).setStaminaDelay((float) currentCause);
+    }
+
+    public static double getFoodExhaustionAmount() {
+        return KenjisStaminaSystemCommon.HUNGER_DEPLETE_AMOUNT.get();
+    }
+    public static double getPuffedFoodExhaustionAmount() {
+        return KenjisStaminaSystemCommon.HUNGER_DEPLETE_AMOUNT_PUFFED.get();
+    }
 
     public static double getMinStaminaLimit() {
         return KenjisStaminaSystemCommon.STAMINA_MIN_LIMIT.get();
@@ -55,7 +109,8 @@ public class StaminaManager {
         return KenjisStaminaSystemCommon.JUMP_CONSUME_AMOUNT.get();
     }
     public static double getStaminaRegainDelay() {
-        return KenjisStaminaSystemCommon.STAMINA_REGEN_DELAY.get();
+
+        return KenjisStaminaSystemCommon.SPRINT_STAMINA_REGEN_DELAY.get();
     }
 
 
@@ -69,18 +124,12 @@ public class StaminaManager {
 
     public boolean canUseHunger = false;
 
-    private boolean canRegen = true;
-
     public static StaminaManager INSTANCE;
     private boolean startTimer = false;
     private float t = 0;
 
-    public boolean getCanRegen(){
-        return canRegen;
-    }
-
-    public void setCanRegen(boolean value) {
-        canRegen = value;
+    public void setStaminaDelay(float delay){
+        currentStaminaDelay = delay;
     }
 
     public static StaminaManager get(Player player) {
@@ -109,10 +158,10 @@ public class StaminaManager {
     }
 
     private void gainStamina(float amount, Player player) {
-       if(getCanRegen()) {
+       if(ConditionHandler.shouldRegen(player)) {
            currentStamina += (amount / 10) * staminaGainMultiplier;
-           float currentExhaustAmount = !isPuffed ? foodExhaustAmount : puffedFoodExhaustAmount;
-           player.causeFoodExhaustion(currentExhaustAmount);
+           float currentExhaustAmount = !isPuffed ? (float) getFoodExhaustionAmount() : (float) getPuffedFoodExhaustionAmount();
+           player.getFoodData().addExhaustion(currentExhaustAmount);
        }
     }
 
@@ -123,6 +172,7 @@ public class StaminaManager {
                     Minecraft mc = Minecraft.getInstance();
                     if (player.isSprinting() && mc.options.toggleSprint().get()) {
                         mc.options.keySprint.setDown(true);
+                        setPlayerStaminaCause(player, StaminaCause.StaminaCauses.SPRINTING);
                         startTimer = true;
                     }
                     if (startTimer) {
@@ -155,7 +205,7 @@ public class StaminaManager {
                 isPuffed = false;
             }
             if (!canConsumeStamina(player) && wasConsumingStamina && currentStaminaDelay > 0) {
-               if(getCanRegen())
+               if(ConditionHandler.shouldRegen(player))
                 currentStaminaDelay -= 1;
             }
             if (currentStaminaDelay <= 0) {
@@ -187,6 +237,7 @@ public class StaminaManager {
                   stamina.manageSprinting(player);
                   stamina.manageStaminaConsumption(player);
                   stamina.ManageMaxStamina(player);
+
               }
           }
       }
@@ -196,10 +247,11 @@ public class StaminaManager {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if(KenjisStaminaSystemCommon.ENABLE_STAMINA_LOGIC.get()) {
-
             Player player = event.getPlayer();
             StaminaManager stamina = get(player);
             stamina.consumeStamina((float)getBlockBreakConsumptionAmount());
+            setPlayerStaminaCause(player, StaminaCause.StaminaCauses.BLOCK_BREAK);
+
         }
     }
     @SubscribeEvent
@@ -208,6 +260,7 @@ public class StaminaManager {
             if (event.getEntity() instanceof Player player) {
                 StaminaManager stamina = get(player);
                 stamina.consumeStamina((float)getJumpConsumptionAmount());
+                setPlayerStaminaCause(player, StaminaCause.StaminaCauses.JUMPING);
             }
         }
     }

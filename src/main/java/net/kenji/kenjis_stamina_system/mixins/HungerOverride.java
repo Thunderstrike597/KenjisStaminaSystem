@@ -14,12 +14,22 @@ public class HungerOverride {
 
     public Player player;
 
+    private boolean approx(float a, float b) {
+        return Math.abs(a - b) < 0.0001f;
+    }
+
+
     @Inject(method = "addExhaustion", at = @At("HEAD"), cancellable = true)
     private void onAddExhaustion(float amount, CallbackInfo ci) {
-        if (player == null) return; // safety check
+        if (player == null) return;
+
         StaminaManager staminaManager = StaminaManager.get(player);
-        if(staminaManager.canUseHunger) {
-            if (amount != StaminaManager.foodExhaustAmount && amount != StaminaManager.puffedFoodExhaustAmount) {
+
+        if (!staminaManager.canUseHunger) {
+            boolean isStaminaExhaust = approx(amount, (float) StaminaManager.getFoodExhaustionAmount()) ||
+                            approx(amount, (float) StaminaManager.getPuffedFoodExhaustionAmount());
+
+            if (!isStaminaExhaust) {
                 ci.cancel();
             }
         }
