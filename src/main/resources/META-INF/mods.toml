@@ -20,7 +20,7 @@ license="${mod_license}"
 # The modid of the mod
 modId="kenjis_stamina_system" #mandatory
 # The version number of the mod
-version="1.0" #mandatory
+version="${mod_version}" #mandatory
 # A display name for the mod
 displayName="Kenjis Stamina System" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
