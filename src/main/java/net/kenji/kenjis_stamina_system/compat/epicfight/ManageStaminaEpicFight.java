@@ -12,11 +12,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import yesman.epicfight.api.animation.AnimationManager;
 import yesman.epicfight.api.animation.AnimationPlayer;
-import yesman.epicfight.api.animation.AnimationProvider;
 import yesman.epicfight.api.animation.types.*;
+import yesman.epicfight.api.asset.AssetAccessor;
 import yesman.epicfight.api.utils.AttackResult;
-import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.events.EntityEvents;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.skill.BasicAttack;
@@ -29,7 +29,6 @@ import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
-import yesman.epicfight.world.damagesource.DamageSourceElements;
 import yesman.epicfight.world.damagesource.EpicFightDamageSources;
 
 import java.util.HashMap;
@@ -109,22 +108,21 @@ public class ManageStaminaEpicFight {
             CapabilityItem itemCap = playerPatch.getHoldingItemCapability(InteractionHand.MAIN_HAND);
             if (itemCap instanceof WeaponCapability weaponCap) {
                 if(playerPatch instanceof ServerPlayerPatch serverPlayerPatch) {
-                    List<AnimationProvider<?>> combos = weaponCap.getAutoAttckMotion(playerPatch);
+                    List<AnimationManager.AnimationAccessor<? extends AttackAnimation>> combos = weaponCap.getAutoAttackMotion(playerPatch);
                     AnimationPlayer animPlayer = serverPlayerPatch.getServerAnimator().animationPlayer;
-                    DynamicAnimation currentAnim = animPlayer.getAnimation();
-                    for(AnimationProvider<?> combo : combos){
-                        if(combo.get() == currentAnim){
-                           StaticAnimation staticAnim = (StaticAnimation) currentAnim.getRealAnimation();
-                           if(staticAnim instanceof BasicAttackAnimation basicAttack){
-                               for (AttackAnimation.Phase phase : basicAttack.phases) {
-                                   float antic = phase.antic;
-                                   float contact = phase.contact;
-                                   if(animPlayer.getElapsedTime() > antic && animPlayer.getElapsedTime() < contact){
-                                       staminaManager.consumeStamina((float) (double) KenjisStaminaSystemCommon.EPIC_FIGHT_ATTACK_CONSUME_AMOUNT.get());
-                                       StaminaManager.setPlayerStaminaCause(playerPatch.getOriginal(), StaminaManager.StaminaCause.StaminaCauses.EPIC_FIGHT_ATTACK);
-                                   }
-                               }
-                           }
+                    DynamicAnimation currentAnim = animPlayer.getAnimation().get();
+                    for(AnimationManager.AnimationAccessor<? extends AttackAnimation> combo : combos) {
+                        if (currentAnim instanceof AttackAnimation attackAnimation) {
+                            if (combo.get() == attackAnimation) {
+                                for (AttackAnimation.Phase phase : attackAnimation.phases) {
+                                    float antic = phase.antic;
+                                    float contact = phase.contact;
+                                    if (animPlayer.getElapsedTime() > antic && animPlayer.getElapsedTime() < contact) {
+                                        staminaManager.consumeStamina((float) (double) KenjisStaminaSystemCommon.EPIC_FIGHT_ATTACK_CONSUME_AMOUNT.get());
+                                        StaminaManager.setPlayerStaminaCause(playerPatch.getOriginal(), StaminaManager.StaminaCause.StaminaCauses.EPIC_FIGHT_ATTACK);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
