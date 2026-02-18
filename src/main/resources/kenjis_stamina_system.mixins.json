@@ -1,6 +1,6 @@
 {
   "minVersion": "0.8",
-  "refmap": "mixins.kenjis_stamina_system.refmap.json",
+  "refmap": "kenjis_stamina_system.refmap.json",
   "required": true,
   "package": "net.kenji.kenjis_stamina_system.mixins",
   "plugin": "net.kenji.kenjis_stamina_system.CompatMixinPlugin",
